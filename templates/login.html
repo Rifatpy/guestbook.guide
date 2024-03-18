@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Portal</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles-login.css') }}"> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="script.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }                
+
+
+        body {
+            height: 100vh;
+            background-image: url("static/balcone.jpg");
+            background-size: cover;  
+            background-color: rgb(202, 202, 202);
+            /* height: 100vh;
+            justify-content: center;
+            background-color: rgb(202, 202, 202); */
+        }
+
+        #footer-hidden {
+          display: none;
+        }
+      
+        header {
+            position: fixed ;
+            top: 0;
+            display: flex;
+            height: 12vh;
+            width: 100%;
+            background-color: rgba(15, 13, 20, 0.8);
+            z-index: 2;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+
+        .header-anchor-tag {
+            text-decoration: none;
+            color: white;
+        }
+
+        .header-anchor-tag-right {
+            text-decoration: none;
+            color: white;
+            margin-right: 15px;
+        }
+
+
+        .header-1 {
+            display: inline-block;
+            width: 30%;
+            margin-top: 1.8em;
+            margin-left: 3%;
+        }
+
+        .header-3 {
+            display: inline-block;
+            width: 40%;
+            margin-top: 1.8em;  
+        }
+
+        #property-name-p {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .header-2 {
+            display: inline-block;
+            width: 30%;
+            text-align: right;
+            margin-top: 1.8em;
+            margin-right: 25px;
+        }
+
+
+        #logo {
+            font-size: 1.5rem;
+            border: 2px solid white;
+            padding: 2px;
+            border-radius: 6px;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        .login-container {
+            background-color: rgba(49, 35, 18, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 30vw;
+            height: 40vh;
+            text-align: center;
+            position: fixed;
+            top: 14vh;
+            justify-content: center;
+            color: white;
+            background: transparent;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(10, 7, 12, .3);
+        }
+
+        form h2{
+            margin: 25px 0 45px 0;
+        }
+
+        .input-box input::placeholder {
+            color: rgb(188, 188, 188);
+        }
+
+        .input-box {
+            width: 100%;
+            height: 35px;
+            margin-bottom: 15px;
+            position: relative;
+            
+        }
+
+        .input-box input {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(10, 7, 12, .3);
+            border-radius: 40px;
+            font-size: 14px;
+            padding-left: 10px;
+            color: white;
+            
+        }
+
+        .hide-show {
+            height: 13px;
+            text-align: right;
+            font-size: 12px;
+        }
+
+        .hide-show span:hover {
+            font-size: 13px;
+        }
+
+        .toggle-password {
+            cursor: pointer;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .remember-forgot a:hover {
+            font-size: 15px;
+        }
+        .login-btn {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            width: 97%;
+            height: 40px;
+            background: white;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+
+        }
+
+        .login-btn:hover {
+            width: 100%;
+            font-size: 17px;
+            box-shadow: 0 0 15px rgba(25, 25, 25, 0.9);
+        }
+
+        .register-btn {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 97%;
+            height: 40px;
+            background: white;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            width: 100%;
+            font-size: 17px;
+            box-shadow: 0 0 15px rgba(25, 25, 25, 0.9);
+        }
+
+
+        footer {
+            bottom: 0;
+            display: flex;
+            flex-wrap: nowrap;
+            height: 200px;
+            width: 100%;
+            background-color: rgba(15, 13, 20, 0.8);
+            color: white;
+            
+        }
+
+        #footer-div-1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 50%;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        #footer-div-2 {
+            display: flex;
+            padding-left: 10px;
+            width: 50%;
+        }
+
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            height: 180px;
+            width: 33%;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+
+        .footer-address {
+            height: 130px;
+            width: 80%;
+
+        }
+
+        .footer-email {
+            height: 50px;
+            width: 80%;
+
+        }
+
+
+
+        /* Media query for mobile responsiveness */
+        @media only screen and (max-width: 700px) {
+            .main {
+                height: 90vh;
+ 
+            }
+            
+            header {
+                height: 10vh;
+            }
+
+            .header-1 {
+                margin-top: 1.2em;
+                margin-left: 3%;
+            }
+            .dashboard {
+                top: 8vh;
+                position: fixed;
+            }
+            
+            #logo {
+                font-size: 0.8rem;
+            }
+
+            #header-text-3 {
+                font-size: 0.8rem;
+            }
+
+            .header-2 {
+                margin-right: 2%;
+            }
+
+            .booking-info {
+                font-size: 0.8em;
+            }
+
+            .container {
+                top: 22vh;
+            }
+
+            .single-details {
+                height: 60px;
+                width: 120px;
+                margin: 6px;
+                display: flex;
+                font-size: 12px;
+                flex-direction: column;
+                padding: 10px 10px 10px 10px;
+                background-color: rgb(240, 243, 243);
+                border-radius: 8px;
+                backdrop-filter: blur(20px);
+                border: 2px solid rgba(10, 7, 12, .3);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+                color: black;
+            }
+
+            footer {
+              display: None;
+              position: absolute;
+              bottom: 0;
+              font-size: 8px;
+            }
+
+            #footer-hidden {
+              display: block;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          
+            .login-container {
+                position: absolute;
+                width: 80vw;
+                height: 50vh;
+            }
+
+        }
+
+
+        /* Media query for mobile responsiveness */
+        @media only screen and (max-width: 412px) {
+            #header-text-3 {
+                display: none;
+            }
+
+            footer {
+                bottom: 0;
+                font-size: 10px;
+            }
+        }
+
+        /* Media query for mobile responsiveness */
+        @media only screen and (max-width: 312px) {
+          body {
+            height: 130vh;
+          }
+
+          
+          #login-header {
+            font-size: 1.2rem;
+          }
+
+          #logo {
+            font-size: 0.8rem;
+          }
+          footer {
+            height: 70px
+
+            font-size: 10px;
+          }
+        }
+
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+        <div class="header-1" id="header-part-left">
+            <a class="header-anchor-tag" id="logo" href="#">Guest Portal</a>
+        </div>
+        <div class="header-3" id="header-part-center">
+            <h2 id="property-name-p" style="color: white;">{{ property_name }}</h2>
+        </div>
+        <div class="header-2" id="header-part-right">
+            <a class="header-anchor-tag-right" id="header-menu-icon" style="font-size: 1.5em;"><i class="fa-solid fa-bars"></i></a>
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="login-container">
+            <form method="post" action="/">
+                <h2 id="login-header">Login to GUEST PORTAL</h2>
+                <div class="input-box">
+                    <label for="phone_number"></label>
+                    <input id="email" type="text" placeholder="Phone" name="phone_number" required>
+                    
+                </div>
+                <div>
+                    {% if error %}
+                        <p>{{ error }}</p>
+                    {% endif %}
+                </div>
+                
+                
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    
+                    <a href="#">Need Help?</a>
+                </div>
+                <button type="submit" class="login-btn">LOGIN</button>
+                
+            </form>
+        </div>
+        
+    </div>
+
+    <footer>
+        <div id="footer-div-1">
+            <div class="footer-address">
+                <h3>Address</h3>
+                <p>Via Brenta 71, Caldonazzo, Italy</p>
+                <br>
+                <p>Phone: 379 17 18 971</p>
+                <br>
+                <p>Email: 
+                    <a href="mailto:business@trentinoshortstsy.com">business@trentinoshortstsy.com</a>
+                </p>
+            </div>
+            <div class="footer-email">
+                <p>&#169;Copyright reserved by Trentino</p>
+            </div>
+        </div>
+        <div id="footer-div-2">
+            <div class="footer-column">
+                <div class="footer-about">
+                    <p style="font-weight: bold;">ABOUT</p>
+                </div>
+                <div class="footer-about">
+                    <a href="#">Team</a>
+                </div>
+                <div class="footer-about">
+                    <a href="#">History</a>
+                </div>
+                <div class="footer-about">
+                    <a href="#">Careers</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-privacy">
+                    <p style="font-weight: bold;">PRIVACY POLICY</p>
+                </div>
+                <div class="footer-privacy">
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-privacy">
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <div class="footer-privacy" style="visibility: hidden;">div4</div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-social">
+                    <p style="font-weight: bold;">SOCIAL</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Facebook</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Instagram</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <nav class="navbar sticky-bottom bg-body-tertiary" id="footer-hidden">
+      <div class="container-fluid">
+        <div class="footer-social">
+            <p style="font-weight: bold;">SOCIAL</p>
+        </div>
+        <div class="footer-social">
+          <i class="fa-brands fa-square-facebook"></i> Facebook
+        </div>
+        <div class="footer-social">
+          <i class="fa-brands fa-square-instagram"></i> Instagram
+        </div>
+        <div class="footer-social">
+          <i class="fa-brands fa-square-x-twitter"></i> Twitter
+        </div>
+      </div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
+
+</body>
+</html>
