@@ -101,9 +101,9 @@
         }
 
         .login-container {
-            background-color: rgba(49, 35, 18, 0.9);
+            background-color: rgba(60, 35, 18, 1);
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
             padding: 20px;
             width: 30vw;
             height: 40vh;
@@ -113,8 +113,8 @@
             justify-content: center;
             color: white;
             background: transparent;
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(10, 7, 12, .3);
+            backdrop-filter: blur(30px);
+            border: 2px solid rgba(10, 7, 12, .5);
         }
 
         form h2{
@@ -139,7 +139,7 @@
             background: transparent;
             border: none;
             outline: none;
-            border: 2px solid rgba(10, 7, 12, .3);
+            border: 2px solid rgba(255, 255, 255, .5);
             border-radius: 40px;
             font-size: 14px;
             padding-left: 10px;
@@ -265,8 +265,8 @@
 
 
 
-        /* Media query for mobile responsiveness */
-        @media only screen and (max-width: 700px) {
+        /* Media query for mobile responsiveness - Medium */
+        @media only screen and (max-width: 768px) {
             .main {
                 height: 90vh;
  
@@ -328,9 +328,11 @@
               font-size: 8px;
             }
 
-            #footer-hidden {
+            #hidden-footer {
               display: block;
-              background-color: rgba(255, 255, 255, 0.1);
+              background-color: rgba(0, 0, 0, 0.8);
+              color: white;
+              text-align: center;
             }
           
             .login-container {
@@ -341,36 +343,65 @@
 
         }
 
-
-        /* Media query for mobile responsiveness */
-        @media only screen and (max-width: 412px) {
+        /* Media query for mobile responsiveness - Small */
+        @media only screen and (max-width: 576px) {
             #header-text-3 {
                 display: none;
             }
 
-            footer {
-                bottom: 0;
-                font-size: 10px;
+            header {
+                height: 10vh;    
+            }
+          
+            .footer-hidden {
+              height: 30px
+              font-size: 10px;
             }
         }
 
-        /* Media query for mobile responsiveness */
-        @media only screen and (max-width: 312px) {
+        /* Media query for mobile responsiveness - Extra Small */
+        @media only screen and (max-width: 412px) {
           body {
-            height: 130vh;
+            height: 100vh;
           }
 
           
           #login-header {
             font-size: 1.2rem;
+            margin-top: 15px;
+            margin-bottom: 25px;
+          }
+
+          .remember-forgot {
+            margin-top: 30px;
           }
 
           #logo {
             font-size: 0.8rem;
           }
+          .footer-hidden {
+            height: 50px
+            font-size: 10px;
+          }
+        }
+
+        /* Media query for mobile responsiveness - Super Extra Small */
+        @media only screen and (max-width: 312px) {
+          body {
+            height: 130vh;
+          }
+  
+  
+          #login-header {
+            font-size: 1.2rem;
+          }
+  
+          #logo {
+            font-size: 0.8rem;
+          }
           footer {
             height: 70px
-
+  
             font-size: 10px;
           }
         }
@@ -484,22 +515,14 @@
             </div>
         </div>
     </footer>
-    <nav class="navbar sticky-bottom bg-body-tertiary" id="footer-hidden">
-      <div class="container-fluid">
-        <div class="footer-social">
-            <p style="font-weight: bold;">SOCIAL</p>
-        </div>
-        <div class="footer-social">
-          <i class="fa-brands fa-square-facebook"></i> Facebook
-        </div>
-        <div class="footer-social">
-          <i class="fa-brands fa-square-instagram"></i> Instagram
-        </div>
-        <div class="footer-social">
-          <i class="fa-brands fa-square-x-twitter"></i> Twitter
-        </div>
-      </div>
-    </nav>
+    <div id="hidden-footer">
+      <h4>Contact Us</h4>
+      <p style="font-size: 10px;">Phone: <a href="tel:+39 379 1718 971">+39 379 1718 971</a></p>
+      <p style="font-size: 10px;">Email: 
+          <a href="mailto:business@trentinoshortstsy.com">business@trentinoshortstsy.com</a>
+      </p>
+      <p style="font-size: 10px;">Address: Via Brenta 71, Caldonazzo, Italy</p>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
 
 </body>
