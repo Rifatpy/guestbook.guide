@@ -1,0 +1,450 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}                
+
+
+body {
+    height: auto;
+    background-image: url("../static/particolare_balcone.jpg");
+    background-size: cover;
+    justify-content: center;
+    background-color: rgb(202, 202, 202);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    height: 12vh;
+    width: 100vw;
+    background-color: rgba(15, 13, 20, 0.8);
+    z-index: 2;
+    line-height: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+
+}
+
+.navbar {
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    font-size: 18px;
+    margin: 0;
+    border: 2px solid white;
+    padding: 4px 4px 4px 4px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display items in a row */
+    flex-direction: row; /* Align items horizontally */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+.navbar li {
+    margin-right: 20px; /* Adjust margin between items */
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none;
+    transition: opacity 0.3s ease; /* Transition added */
+    opacity: 0; /* Initially hidden */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.menu li {
+    margin-bottom: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+
+.menu {
+    text-align: center;
+    color: white;
+    float: right;
+    margin-right: 5px;
+    margin-top: 1.2em;
+}
+
+
+
+#property-name-p {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#logo {
+    font-size: 1.5rem;
+    border: 2px solid white;
+    padding: 2px;
+    border-radius: 6px;
+}
+
+
+.main {
+    display: block;
+    height: auto;
+    height: 130vh;
+    width: 100%;
+
+}
+
+.dashboard {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    top: 12vh;
+    height: auto;
+    width: 98%;
+    margin: 1% 1% 1% 1%;
+    color: black;
+    background-color: rgba(230, 172, 64, 0.5);
+    box-shadow: 0 0 10px rgba(7, 6, 6, 0.5);
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(10, 7, 12, .3);
+}
+
+.booking-info-header {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 2%;
+}
+
+.booking-info-details-div {
+    width: 98%;
+    height: 10vh;
+    margin: 0 1% 0 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.booking-info { 
+    height: 2em;
+    width: 33%;
+    /* white-space: nowrap; */
+}
+
+.container {
+    position: relative;
+    display: block;
+    top: 35vh;
+    height: 80vh;
+    width: 100vw;
+
+}
+
+
+
+button {
+    margin-top: 5px;
+    display: inline-block;
+    width: 20%;
+    height: 35px;
+    background-color: rgba(230, 172, 64, 0.8);
+    box-shadow: 0 0 10px rgba(7, 6, 6, 0.5);
+    background: transparent;
+    backdrop-filter: blur(20px);
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    pointer-events: stroke;
+    text-align: center;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+.content {
+    position: relative;
+    margin-top: 20px;
+    height: auto;
+    width: 90%;
+    padding: 3%;
+    background-color: rgba(194, 193, 197, 0.8);
+    box-shadow: 0 0 10px rgba(7, 6, 6, 0.5);
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(10, 7, 12, .3);
+    margin-left: 2%;
+}
+
+#option2 {
+    text-align: center;
+}
+
+
+#tax-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 92%;
+}
+
+label {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+#calculate-btn {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#option4 {
+    text-align: center;
+    justify-content: center;
+    place-items: center;
+}
+
+.proprety-info_header {
+    margin-bottom: 20px;
+    color: transparent; /* Make the text transparent */
+    color: black;
+
+}
+
+.property-info-div-row-1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3%;
+}
+
+
+.single-details {
+    height: 80px;
+    width: 160px;
+    margin: 10px;
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    padding: 10px 10px 10px 10px;
+    background-color: rgb(240, 243, 243);
+    border-radius: 8px;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(10, 7, 12, .3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    color: black;
+}
+
+.line {
+    white-space: nowrap;
+}
+
+.option-content {
+    display: none;
+
+}
+
+.option-content.active {
+    display: block;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 200px;
+    width: 100%;
+    background-color: rgba(15, 13, 20, 0.8);
+    color: white;
+
+}
+
+#footer-div-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+#footer-div-2 {
+    display: flex;
+    padding-left: 10%;
+    width: 50%;
+}
+
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    width: 33%;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+.footer-address {
+    height: 130px;
+    width: 80%;
+}
+
+.footer-email {
+    height: 50px;
+    width: 80%;
+}
+
+/* Media query for mobile responsiveness */
+@media only screen and (max-width: 942px) {
+    .menu {
+        font-size: 14px;
+    }
+}
+
+/* Media query for mobile responsiveness - Medium */
+@media only screen and (max-width: 768px) {
+    .main {
+        position: relative;
+        height: 90vh;
+    }
+
+    header {
+        line-height: 15px;
+    }
+
+  
+    .dashboard {
+        top: 8vh;
+        position: fixed;
+    }
+
+
+    .booking-info {
+        font-size: 0.8em;
+    }
+  
+    .container {
+        top: 22vh;
+    }
+
+    .content {
+        top: 8vh;
+
+    }
+
+    .single-details {
+        height: 60px;
+        width: 120px;
+        margin: 6px;
+        display: flex;
+        font-size: 12px;
+        flex-direction: column;
+        padding: 10px 10px 10px 10px;
+        background-color: rgb(240, 243, 243);
+        border-radius: 8px;
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(10, 7, 12, .3);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        color: black;
+    }
+
+    footer {
+        font-size: 10px;
+    }
+
+    button {
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+}
+
+/* Media query for mobile responsiveness - Small */
+@media only screen and (max-width: 576px) {
+
+}
+
+/* Media query for mobile responsiveness - Extra Small */
+@media only screen and (max-width: 412px) {
+
+}
+
+/* Media query for mobile responsiveness - Super Extra Small */
+@media only screen and (max-width: 312px) {
+
+
+}
