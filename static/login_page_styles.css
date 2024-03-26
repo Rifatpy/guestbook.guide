@@ -6,7 +6,7 @@
 
 body {
     height: 100vh;
-    background-image: url("static/balcone.jpg");
+    background-image: url("../static/balcone.jpg");
     background-size: cover;  
     background-color: rgb(202, 202, 202);
     /* height: 100vh;

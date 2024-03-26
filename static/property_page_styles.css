@@ -36,6 +36,11 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    line-height: 30px;
+}
+
+.menu-btn {
+  font-size: 26px;
 }
 
 .navbar h1 {
@@ -55,10 +60,23 @@ a {
     flex-direction: row; /* Align items horizontally */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
+    text-transform: uppercase;
 }
 
 .navbar li {
     margin-right: 20px; /* Adjust margin between items */
+}
+
+.navbar li a {
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 2px 4px 2px 4px;
+}
+
+.navbar li a:hover {
+  cursor: pointer;
+  background: #fff;
+  color: black;
 }
 
 .navbar a {
@@ -76,7 +94,7 @@ a {
 
 .menu {
     position: fixed;
-    top: 80px;
+    top: 65px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -108,16 +126,10 @@ a {
     font-size: 24px;
 }
 
-
-.menu {
-    text-align: center;
-    color: white;
-    float: right;
-    margin-right: 5px;
-    margin-top: 1.2em;
+.menu a:hover {
+  cursor: pointer;
+  color: #B98B68;
 }
-
-
 
 #property-name-p {
     text-align: center;
@@ -368,24 +380,28 @@ footer {
     width: 80%;
 }
 
-/* Media query for mobile responsiveness */
-@media only screen and (max-width: 942px) {
-    .menu {
-        font-size: 14px;
-    }
-}
+
 
 /* Media query for mobile responsiveness - Medium */
 @media only screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
+  
+    .navbar ul {
+      display: none;
+    }
+  
+    .menu-btn {
+      display: block;
+    }
+    
     .main {
         position: relative;
         height: 90vh;
     }
-
-    header {
-        line-height: 15px;
-    }
-
   
     .dashboard {
         top: 8vh;

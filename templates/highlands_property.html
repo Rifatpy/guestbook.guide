@@ -23,7 +23,7 @@
                 <li><a onclick="showOption('option4')">Tourist Tax</a></li>
                 <li><a id="header-text-3" href="/">SIGN OUT</a></li>
             </ul>
-            <div class="menu-btn">&#9776;</div>
+            <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
         </div>
 
         <div class="menu">
@@ -35,7 +35,32 @@
                 <li><a id="header-text-3" href="/">SIGN OUT</a></li>
             </ul>
         </div>
-
+        <script>
+            document.querySelector('.menu-btn').addEventListener('click', function() {
+                var menu = document.querySelector('.menu');
+                if (menu.style.display === '' || menu.style.display === 'none') {
+                    menu.style.display = 'block';
+                    setTimeout(function() {
+                        menu.style.opacity = '1'; // Show menu with opacity transition
+                    }, 10); // Add a slight delay for transition to take effect
+                } else {
+                    menu.style.opacity = '0'; // Hide menu with opacity transition
+                    setTimeout(function() {
+                        menu.style.display = 'none';
+                    }, 300); // Wait for transition to finish before hiding
+                }
+            });
+    
+            document.querySelectorAll('.menu a').forEach(item => {
+                item.addEventListener('click', () => {
+                    var menu = document.querySelector('.menu');
+                    menu.style.opacity = '0'; // Hide menu with opacity transition
+                    setTimeout(function() {
+                        menu.style.display = 'none';
+                    }, 300); // Wait for transition to finish before hiding
+                });
+            });
+        </script>
 
 
       
