@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guest Portal</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles-property-page-1.css') }}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='property_page_styles.css') }}">
-
 </head>
 
 
 <body>
-
     <header>
         <div class="navbar">
             <h1>Guest Portal</h1>
@@ -61,46 +58,6 @@
                 });
             });
         </script>
-
-
-      
-        <!--<ul class="menu">
-            <li><a class="header-anchor-tag-right" onclick="showOption('option1')">Property Info</a></li>
-            <li><a class="header-anchor-tag-right" onclick="showOption('option2')">Guest Invoice</a></li>
-            <li><a class="header-anchor-tag-right" onclick="showOption('option3')">Direction</a></li>
-            <li><a class="header-anchor-tag-right" onclick="showOption('option4')">Tourist Tax</a></li>
-            <li><a class="header-anchor-tag-right" id="header-text-3" href="/">SIGN OUT</a></li>
-        </ul>
-        <div class="navbar-btn">
-          <a id="header-menu-icon" style="font-size: 1.5em;"><i class="fa-solid fa-bars"></i></a>
-        </div>
-
-        <script>
-          document.querySelector('.menu-btn').addEventListener('click', function() {
-              var menu = document.querySelector('.menu');
-              if (menu.style.display === '' || menu.style.display === 'none') {
-                  menu.style.display = 'block';
-                  setTimeout(function() {
-                      menu.style.opacity = '1'; // Show menu with opacity transition
-                  }, 10); // Add a slight delay for transition to take effect
-              } else {
-                  menu.style.opacity = '0'; // Hide menu with opacity transition
-                  setTimeout(function() {
-                      menu.style.display = 'none';
-                  }, 300); // Wait for transition to finish before hiding
-              }
-          });
-  
-          document.querySelectorAll('.menu a').forEach(item => {
-              item.addEventListener('click', () => {
-                  var menu = document.querySelector('.menu');
-                  menu.style.opacity = '0'; // Hide menu with opacity transition
-                  setTimeout(function() {
-                      menu.style.display = 'none';
-                  }, 300); // Wait for transition to finish before hiding
-              });
-          });
-        </script>-->
         <script async src="{{ url_for('static', filename='script.js') }}"></script>
     </header>
 
@@ -117,19 +74,10 @@
                 <div class="booking-info"><i class="fa-regular fa-credit-card"></i> Check OUT: {{ guest_data['Guest_Check_OUT'] }}</div>
             </div>
         </div>
+        <div class="message-container">
+            <span class="message"><span class="highlight">Attention:</span> Please pay the tourist tax. By Italian law, a tourist tax is due for every guest older than 14 years old.</span>
+        </div>
         <div class="container">
-            <!-- <div class="hidden-menu">
-                <button class="hidden-button" onclick="showOption('option1')"><i class="fa-solid fa-circle-info"></i></button>
-                <button class="hidden-button" onclick="showOption('option2')"><i class="fa-solid fa-file-invoice"></i></button>
-                <button class="hidden-button" onclick="showOption('option3')"><i class="fa-solid fa-location-dot"></i></button>
-                <button class="hidden-button" onclick="showOption('option4')"><i class="fa-solid fa-calculator"></i></button>
-            </div> 
-            <div class="menu">
-              <button onclick="showOption('option1')">Property Info</button>
-              <button onclick="showOption('option2')">Guest Invoice</button>
-              <button onclick="showOption('option3')">Direction</button>
-              <button onclick="showOption('option4')">Tourist Tax</button>
-            </div>-->
             <div class="content">
               <div id="option1" class="option-content">
                 <div class="proprety-info_header">
@@ -177,8 +125,8 @@
                 <button>DOWNLOAD</button>
               </div>
               <div id="option3" class="option-content">
-                <h2>This option is under development</h2>
-                
+                <h2>Map direction to Highlands Property</h2>
+                <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2771.8553933795647!2d11.263463375150351!3d45.99411647108752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47789f1f4473b247%3A0x1919002d5b31ca0e!2sVia%20Brenta%2C%207%2F1%2C%2038052%20Caldonazzo%20TN%2C%20Italy!5e0!3m2!1sen!2sbd!4v1711468390913!5m2!1sen!2sbd" width="100%" height="380px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
               </div>
               <div id="option4" class="option-content">
                 
@@ -275,10 +223,5 @@
             </div>
         </div>
     </footer>
-    
-
-
-
-    
 </body>
 </html>

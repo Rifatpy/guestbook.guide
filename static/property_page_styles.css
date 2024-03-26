@@ -8,11 +8,13 @@
 
 body {
     height: auto;
-    background-image: url("../static/particolare_balcone.jpg");
+    background-image: url("../static/particolare_balcone.jpg");*/
     background-size: cover;
     justify-content: center;
     background-color: rgb(202, 202, 202);
 }
+
+/* This is header part CSS */
 
 header {
     position: fixed;
@@ -29,6 +31,8 @@ a {
     color: white;
 
 }
+
+/* This is Navigation Bar CSS */
 
 .navbar {
     color: #fff;
@@ -131,23 +135,9 @@ a {
   color: #B98B68;
 }
 
-#property-name-p {
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-#logo {
-    font-size: 1.5rem;
-    border: 2px solid white;
-    padding: 2px;
-    border-radius: 6px;
-}
-
 
 .main {
     display: block;
-    height: auto;
     height: 130vh;
     width: 100%;
 
@@ -159,7 +149,7 @@ a {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    top: 12vh;
+    top: 70px;
     height: auto;
     width: 98%;
     margin: 1% 1% 1% 1%;
@@ -193,38 +183,44 @@ a {
 }
 
 .container {
-    position: relative;
+    position: absolute;
     display: block;
-    top: 35vh;
+    top: 220px;
     height: 80vh;
     width: 100vw;
 
 }
 
+/* This is Message part CSS */
 
+.message-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    width: 100%;
+    background-color: #ffc107;
+    border: 2px solid #ff9800;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 
-button {
-    margin-top: 5px;
-    display: inline-block;
-    width: 20%;
-    height: 35px;
-    background-color: rgba(230, 172, 64, 0.8);
-    box-shadow: 0 0 10px rgba(7, 6, 6, 0.5);
-    background: transparent;
-    backdrop-filter: blur(20px);
-    color: white;
-    text-align: left;
-    cursor: pointer;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 4px;
-    pointer-events: stroke;
+.message {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
     text-align: center;
+    max-width: 100%;
 }
 
-button:hover {
-    background-color: white;
-    color: black;
+.message em {
+    color: #e91e63;
 }
+
+
+
 
 .content {
     position: relative;
@@ -402,10 +398,19 @@ footer {
         position: relative;
         height: 90vh;
     }
+
+    .message-container {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .message {
+        font-size: 12px;
+        max-width: 100%;
+    }
   
     .dashboard {
-        top: 8vh;
-        position: fixed;
+        top: 80px;
     }
 
 
@@ -414,7 +419,7 @@ footer {
     }
   
     .container {
-        top: 22vh;
+        top: 160px;
     }
 
     .content {
@@ -447,11 +452,17 @@ footer {
         font-weight: bold;
     }
 
+    iframe {
+      height: 230px;
+    }
+
 }
 
 /* Media query for mobile responsiveness - Small */
 @media only screen and (max-width: 576px) {
-
+  .container {
+      top: 180px;
+  }
 }
 
 /* Media query for mobile responsiveness - Extra Small */
@@ -461,6 +472,8 @@ footer {
 
 /* Media query for mobile responsiveness - Super Extra Small */
 @media only screen and (max-width: 312px) {
-
+  .container {
+      top: 190px;
+  }
 
 }
