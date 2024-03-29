@@ -8,7 +8,8 @@
 
 body {
     height: auto;
-    background-image: url("../static/particolare_balcone.jpg");*/
+    /*background-image: url("../static/particolare_balcone.jpg");*/
+    background: linear-gradient(135deg , #79777e 10% , #bababa );
     background-size: cover;
     justify-content: center;
     background-color: rgb(202, 202, 202);
@@ -138,7 +139,7 @@ a {
 
 .main {
     display: block;
-    height: 130vh;
+    height: 140vh;
     width: 100%;
 
 }
