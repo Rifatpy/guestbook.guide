@@ -14,16 +14,17 @@
           <div class="navbar">
               <h1>Guest Portal</h1>
               <ul>
-                  <li><a onclick="showOption('option1')">Property Info</a></li>
+                  <!--<li><a onclick="showOption('option1')">Property Info</a></li>
                   <li><a onclick="showOption('option2')">Guest Invoice</a></li>
                   <li><a onclick="showOption('option3')">Direction</a></li>
-                  <li><a onclick="showOption('option4')">Tourist Tax</a></li>
+                  <li><a onclick="showOption('option4')">Tourist Tax</a></li>-->
                   <li><a id="header-text-3" href="/">SIGN OUT</a></li>
               </ul>
-              <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+              <div class="menu-btn"><a href="/"><i class="fa-solid fa-right-from-bracket"></i></a></div>
+
           </div>
 
-          <div class="menu">
+          <!--<div class="menu">
               <ul>
                   <li><a onclick="showOption('option1')">Property Info</a></li>
                   <li><a onclick="showOption('option2')">Guest Invoice</a></li>
@@ -57,12 +58,18 @@
                       }, 300); // Wait for transition to finish before hiding
                   });
               });
-          </script>
+          </script>-->
           <script async src="{{ url_for('static', filename='script.js') }}"></script>
       </header>
 
 
       <div class="main">
+          <div class="scrollable-section">
+              <div class="buttons" onclick="showOption('option1')"><i class="fa-solid fa-circle-info"></i></br>Property Information</div>
+              <div class="buttons" onclick="showOption('option2')"><i class="fa-solid fa-file-invoice"></i></br>Guest Invoice</div>
+              <div class="buttons" onclick="showOption('option3')"><i class="fa-solid fa-route"></i></br>Direction</div>
+              <div class="buttons" onclick="showOption('option4')"><i class="fa-solid fa-credit-card"></i></br>Tourist Tax</div>
+          </div>
           <div class="dashboard">
               <h2 class="booking-info-header">Booking Information</h2>
               <div class="booking-info-details-div">
@@ -134,26 +141,159 @@
                       <h2>Tourist Tax Calculator</h2>
                       <p>Enter your details below to calculate the tourist tax:</p>
 
-                      <label for="amount">Total Number of Person:</label>
-                      <input type="number" id="amount" placeholder="Enter total number of Person">
+                      <label for="adults">Total Number of Adults:</label>
+                      <input type="number" id="adults" placeholder="Enter total number of Person">
+
+                      <label for="childs">Total Number of Childs:</label>
+                      <input type="number" id="childs" placeholder="Enter number of nights stayed" value="0">
 
                       <label for="nights">Number of Nights Stayed:</label>
                       <input type="number" id="nights" placeholder="Enter number of nights stayed">
 
-                      <button id="calculate-btn" onclick="calculateTax()">Calculate Tax</button>
+                      <button id="calculate-btn" onclick="calculateTax()" style="margin-top: 10px">Calculate Tax</button>
 
                       <div id="result"></div>
+                      <a id="pay-tax-btn" onclick="calculateTax()" style="margin-top: 10px" href="">Pay Tax Now</a>
                   </div>
                   <script>
                       function calculateTax() {
-                          var amount = document.getElementById('amount').value;
-                          var nights = document.getElementById('nights').value;
+                          var adults = parseInt(document.getElementById('adults').value);
+                          var childs = parseInt(document.getElementById('childs').value);
+                          var nights = parseInt(document.getElementById('nights').value);
 
-                          if (amount && nights) {
-                              var tax = (amount * nights);
-                              document.getElementById('result').innerHTML = "Tourist Tax: $" + tax.toFixed(2);
+                          if (!isNaN(adults) && !isNaN(childs) && !isNaN(nights)) {
+                              var tax = (adults + childs) * nights;
+                              document.getElementById('result').innerHTML = "Tourist Tax: €" + tax.toFixed(2);
+                              document.getElementById('pay-tax-btn').style.display = 'block'; // Show the "Pay Tax Now" button
+                              // Set redirect link based on the value of tax
+                              var redirectLink = '';
+                              switch (tax) {
+                                  case 1:
+                                      redirectLink = 'https://buy.stripe.com/8wMdTc6sDcbqbfybIK';
+                                      break;
+                                  case 2:
+                                      redirectLink = 'https://buy.stripe.com/5kA4iC3gr7Va97qcMN';
+                                      break;
+                                  case 3:
+                                      redirectLink = 'https://buy.stripe.com/fZeg1k2cndfu4Ra14G';
+                                      break;
+                                  case 4:
+                                      redirectLink = 'https://buy.stripe.com/14k02mcR13EU6Zi28J';
+                                      break;
+                                  case 5:
+                                      redirectLink = 'https://buy.stripe.com/4gw7uO3gr2AQ4RacNm';
+                                      break;
+                                  case 6:
+                                      redirectLink = 'https://buy.stripe.com/4gwdTcaIT3EU6Zi3cL';
+                                      break;
+                                  case 7:
+                                      redirectLink = 'https://buy.stripe.com/cN25mGaITejybfyfZw';
+                                      break;
+                                  case 8:
+                                      redirectLink = 'https://buy.stripe.com/6oE8yS5ozfnCdnG9B7';
+                                      break;
+                                  case 9:
+                                      redirectLink = 'https://buy.stripe.com/7sI2aubMX7Vaabu28E';
+                                      break;
+                                  case 10:
+                                      redirectLink = 'https://buy.stripe.com/fZeeXg9EP5N25Ve28D';
+                                      break;
+                                  case 12:
+                                      redirectLink = 'https://buy.stripe.com/7sI5mGaITa3i97qbJc';
+                                      break;
+                                  case 14:
+                                      redirectLink = 'https://buy.stripe.com/aEU5mGbMX6R6erK3cF';
+                                      break;
+                                  case 15:
+                                      redirectLink = 'https://buy.stripe.com/eVaeXgeZ9dfugzS00s';
+                                      break;
+                                  case 16:
+                                      redirectLink = 'https://buy.stripe.com/eVa16q8AL1wM1EY3cD';
+                                      break;
+                                  case 16:
+                                      redirectLink = 'https://buy.stripe.com/8wMdTc6sDcbqbfybIK';
+                                      break;
+                                  case 18:
+                                      redirectLink = 'https://buy.stripe.com/eVa7uO18j1wM3N6cNp';
+                                      break;
+                                  case 20:
+                                      redirectLink = 'https://buy.stripe.com/6oEaH09EP6R683mbJm';
+                                      break;
+                                  case 21:
+                                      redirectLink = 'https://buy.stripe.com/fZe4iC4kvdfu1EY3cA';
+                                      break;
+                                  case 24:
+                                      redirectLink = 'https://buy.stripe.com/dR64iCaITa3i2J2bJ5';
+                                      break;
+                                  case 25:
+                                      redirectLink = 'https://buy.stripe.com/4gw16q7wHa3i5VeeVg';
+                                      break;
+                                  case 27:
+                                      redirectLink = 'https://buy.stripe.com/9AQcP8aIT8Ze4Ra9AV';
+                                      break;
+                                  case 28:
+                                      redirectLink = 'https://buy.stripe.com/fZe3ey18jejy6Zi6oI';
+                                      break;
+                                  case 30:
+                                      redirectLink = 'https://buy.stripe.com/6oE8ySg3d3EU3N6cN5';
+                                      break;
+                                  case 32:
+                                      redirectLink = 'https://buy.stripe.com/dR6cP86sDa3idnGeVc';
+                                      break;
+                                  case 36:
+                                      redirectLink = 'https://buy.stripe.com/14k9CWbMXgrGdnGaEV';
+                                      break;
+                                  case 40:
+                                      redirectLink = 'https://buy.stripe.com/00g8yS18j6R61EYcN2';
+                                      break;
+                                  case 42:
+                                      redirectLink = 'https://buy.stripe.com/3cs7uO5oz8Ze6ZicN1';
+                                      break;
+                                  case 45:
+                                      redirectLink = 'https://buy.stripe.com/14k4iC8ALb7m2J200e';
+                                      break;
+                                  case 48:
+                                      redirectLink = 'https://buy.stripe.com/bIY7uOg3dfnCerKcMZ';
+                                      break;
+                                  case 49:
+                                      redirectLink = 'https://buy.stripe.com/aEU9CW04f3EUfvOcMY';
+                                      break;
+                                  case 50:
+                                      redirectLink = 'https://buy.stripe.com/fZe5mG4kvb7mcjC7sD';
+                                      break;
+                                  case 54:
+                                      redirectLink = 'https://buy.stripe.com/28obL44kv6R6dnG7sC';
+                                      break;
+                                  case 56:
+                                      redirectLink = 'https://buy.stripe.com/28o9CWdV50sIcjC14d';
+                                      break;
+                                  case 60:
+                                      redirectLink = 'https://buy.stripe.com/14k6qK7wHejy6ZieV2';
+                                      break;
+                                  case 63:
+                                      redirectLink = 'https://buy.stripe.com/bIYaH0dV5dfuabueV1';
+                                      break;
+                                  case 64:
+                                      redirectLink = 'https://buy.stripe.com/3csdTcg3dcbq83m006';
+                                      break;
+                                  case 70:
+                                      redirectLink = 'https://buy.stripe.com/eVa8ySbMXa3ierKbIN';
+                                      break;
+                                  case 72:
+                                      redirectLink = 'https://buy.stripe.com/eVaeXgdV5grG4Ra148';
+                                      break;
+                                  case 80:
+                                      redirectLink = 'https://buy.stripe.com/5kAcP818j2AQ6Zi147';
+                                      break;
+                                  // Add cases for other tax values as needed
+                                  default:
+                                      // Default redirect link if tax value doesn't match any case
+                                      redirectLink = 'default-link';
+                              }
+                              document.getElementById('pay-tax-btn').setAttribute('href', redirectLink);
+        
                           } else {
-                              document.getElementById('result').innerHTML = "Please enter both amount and nights to calculate tax.";
+                              document.getElementById('result').innerHTML = "Please enter valid integer values for adults, childs, and nights to calculate tax.";
                           }
                       }
                   </script>
