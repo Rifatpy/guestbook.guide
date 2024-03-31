@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='property_page_styles.css') }}">
+</head>
+
+
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Guest Portal</h1>
+            <ul>
+                <!--<li><a onclick="showOption('option1')">Property Info</a></li>
+                <li><a onclick="showOption('option2')">Guest Invoice</a></li>
+                <li><a onclick="showOption('option3')">Direction</a></li>
+                <li><a onclick="showOption('option4')">Tourist Tax</a></li>-->
+                <li><a id="header-text-3" href="/">SIGN OUT</a></li>
+            </ul>
+            <div class="menu-btn"><a href="/"><i class="fa-solid fa-right-from-bracket"></i></a></div>
+
+        </div>
+
+        <!--<div class="menu">
+            <ul>
+                <li><a onclick="showOption('option1')">Property Info</a></li>
+                <li><a onclick="showOption('option2')">Guest Invoice</a></li>
+                <li><a onclick="showOption('option3')">Direction</a></li>
+                <li><a onclick="showOption('option4')">Tourist Tax</a></li>
+                <li><a id="header-text-3" href="/">SIGN OUT</a></li>
+            </ul>
+        </div>
+        <script>
+            document.querySelector('.menu-btn').addEventListener('click', function() {
+                var menu = document.querySelector('.menu');
+                if (menu.style.display === '' || menu.style.display === 'none') {
+                    menu.style.display = 'block';
+                    setTimeout(function() {
+                        menu.style.opacity = '1'; // Show menu with opacity transition
+                    }, 10); // Add a slight delay for transition to take effect
+                } else {
+                    menu.style.opacity = '0'; // Hide menu with opacity transition
+                    setTimeout(function() {
+                        menu.style.display = 'none';
+                    }, 300); // Wait for transition to finish before hiding
+                }
+            });
+
+            document.querySelectorAll('.menu a').forEach(item => {
+                item.addEventListener('click', () => {
+                    var menu = document.querySelector('.menu');
+                    menu.style.opacity = '0'; // Hide menu with opacity transition
+                    setTimeout(function() {
+                        menu.style.display = 'none';
+                    }, 300); // Wait for transition to finish before hiding
+                });
+            });
+        </script>-->
+        <script async src="{{ url_for('static', filename='script.js') }}"></script>
+    </header>
+
+
+    <div class="main">
+        <div class="scrollable-section">
+            <div class="buttons" onclick="showOption('option1')"><i class="fa-solid fa-circle-info"></i></br>Property Information</div>
+            <div class="buttons" onclick="showOption('option2')"><i class="fa-solid fa-file-invoice"></i></br>Guest Invoice</div>
+            <div class="buttons" onclick="showOption('option3')"><i class="fa-solid fa-route"></i></br>Direction</div>
+            <div class="buttons" onclick="showOption('option4')"><i class="fa-solid fa-credit-card"></i></br>Tourist Tax</div>
+        </div>
+        <div class="dashboard">
+            <h2 class="booking-info-header">Booking Information</h2>
+            <div class="booking-info-details-div">
+                <div class="booking-info"><i class="fa-solid fa-file-signature"></i> First Name: {{ guest_data['Guest_First_Name'] }}</div>
+                <div class="booking-info"><i class="fa-solid fa-file-signature"></i> Last Name: {{ guest_data['Guest_Last_Name'] }}</div>
+                <div class="booking-info"><i class="fa-solid fa-envelope"></i> Email: {{ guest_data['Guest_Email'] }}</div>
+                <div class="booking-info"><i class="fa-solid fa-mobile-screen-button"></i> Phone: {{ guest_data['Guest_Phone'] }}</div>
+                <div class="booking-info"><i class="fa-solid fa-building-circle-check"></i> Check IN: {{ guest_data['Guest_Check_IN'] }}</div>
+                <div class="booking-info"><i class="fa-regular fa-credit-card"></i> Check OUT: {{ guest_data['Guest_Check_OUT'] }}</div>
+            </div>
+        </div>
+        <div class="message-container">
+            <span class="message"><span class="highlight" >Attention:</span> Please pay the tourist tax. By Italian law, a tourist tax is due for every guest older than 14 years old.</span>
+        </div>
+        <div class="container">
+            <div class="content">
+              <div id="option1" class="option-content">
+                <div class="proprety-info_header">
+                    <h2>Highlands - Exclusive Renewed & 5m centro Suited for Family</h2>
+                </div>
+                <div class="property-info-div-row-1">
+                    <div class="single-details">
+                        <div class="line" style="font-size: 16px; font-weight: bold;"><i class="fa-sharp fa-solid fa-star"></i> Amenities</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> Washing Mechine</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> Heating</div> 
+                    </div>
+                    <div class="single-details">
+                        <div class="line" style="font-size: 16px; font-weight: bold;"><i class="fa-solid fa-briefcase"></i> Business</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> Laptop Friendly</div>
+
+                    </div>
+                    <div class="single-details">
+                        <div class="line" style="font-size: 16px; font-weight: bold;"><i class="fa-solid fa-wifi"></i> Internet</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> Wifi</div>
+
+                    </div>
+                    <div class="single-details">
+                        <div class="line" style="font-size: 16px; font-weight: bold;"><i class="fa-solid fa-utensils"></i> Kitchen</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> Kitchen</div>
+
+                    </div>
+                    <div class="single-details">
+                        <div class="line" style="font-size: 16px; font-weight: bold;"><i class="fa-solid fa-music"></i> Entertainment</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> TV</div>
+
+                    </div>
+                    <div class="single-details">
+                        <div class="line" style="font-size: 16px; font-weight: bold;"><i class="fa fa-universal-access" aria-hidden="true"></i> Suitability</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> Children Not Allowed</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> Infants not allowed</div> 
+                    </div>
+                    <div class="single-details">
+                        <div class="line" style="font-size: 16px; font-weight: bold;"><i class="fa fa-paw" aria-hidden="true"></i> Pets</div>
+                        <div class="line"><i class="fa-solid fa-check"></i> Pets Considered</div>
+                    </div>
+                </div>
+              </div>
+              <div id="option2" class="option-content">
+                <h2>Download Invoice</h2>
+                <button>DOWNLOAD</button>
+              </div>
+              <div id="option3" class="option-content">
+                <h2 style="font-size: 16px">Map direction to Highlands Property</h2>
+                <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2770.928520196307!2d11.298147!3d46.012618999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4a42cb40c23f0c91%3A0xe4d3ef40f542fac5!2sHighlands%20-%20Trentino%20Short%20Stay!5e0!3m2!1sen!2sbd!4v1711469534087!5m2!1sen!2sbd" width="100%" height="380px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+              </div>
+              <div id="option4" class="option-content">
+
+                <div id="tax-details">
+                    <h2>Tourist Tax Calculator</h2>
+                    <p>Enter your details below to calculate the tourist tax:</p>
+
+                    <label for="adults">Total Number of Adults:</label>
+                    <input type="number" id="adults" placeholder="Enter total number of Person">
+
+                    <label for="childs">Total Number of Childs:</label>
+                    <input type="number" id="childs" placeholder="Enter number of nights stayed" value="0">
+
+                    <label for="nights">Number of Nights Stayed:</label>
+                    <input type="number" id="nights" placeholder="Enter number of nights stayed">
+
+                    <button id="calculate-btn" onclick="calculateTax()" style="margin-top: 10px">Calculate Tax</button>
+
+                    <div id="result"></div>
+                    <a id="pay-tax-btn" onclick="calculateTax()" style="margin-top: 10px" href="">Pay Tax Now</a>
+                </div>
+                <script>
+                    function calculateTax() {
+                        var adults = parseInt(document.getElementById('adults').value);
+                        var childs = parseInt(document.getElementById('childs').value);
+                        var nights = parseInt(document.getElementById('nights').value);
+
+                        if (!isNaN(adults) && !isNaN(childs) && !isNaN(nights)) {
+                            var tax = (adults + childs) * nights;
+                            document.getElementById('result').innerHTML = "Tourist Tax: €" + tax.toFixed(2);
+                            document.getElementById('pay-tax-btn').style.display = 'block'; // Show the "Pay Tax Now" button
+                            // Set redirect link based on the value of tax
+                            var redirectLink = '';
+                            switch (tax) {
+                                case 1:
+                                    redirectLink = 'https://buy.stripe.com/8wMdTc6sDcbqbfybIK';
+                                    break;
+                                case 2:
+                                    redirectLink = 'https://buy.stripe.com/5kA4iC3gr7Va97qcMN';
+                                    break;
+                                case 3:
+                                    redirectLink = 'https://buy.stripe.com/fZeg1k2cndfu4Ra14G';
+                                    break;
+                                case 4:
+                                    redirectLink = 'https://buy.stripe.com/14k02mcR13EU6Zi28J';
+                                    break;
+                                case 5:
+                                    redirectLink = 'https://buy.stripe.com/4gw7uO3gr2AQ4RacNm';
+                                    break;
+                                case 6:
+                                    redirectLink = 'https://buy.stripe.com/4gwdTcaIT3EU6Zi3cL';
+                                    break;
+                                case 7:
+                                    redirectLink = 'https://buy.stripe.com/cN25mGaITejybfyfZw';
+                                    break;
+                                case 8:
+                                    redirectLink = 'https://buy.stripe.com/6oE8yS5ozfnCdnG9B7';
+                                    break;
+                                case 9:
+                                    redirectLink = 'https://buy.stripe.com/7sI2aubMX7Vaabu28E';
+                                    break;
+                                case 10:
+                                    redirectLink = 'https://buy.stripe.com/fZeeXg9EP5N25Ve28D';
+                                    break;
+                                case 12:
+                                    redirectLink = 'https://buy.stripe.com/7sI5mGaITa3i97qbJc';
+                                    break;
+                                case 14:
+                                    redirectLink = 'https://buy.stripe.com/aEU5mGbMX6R6erK3cF';
+                                    break;
+                                case 15:
+                                    redirectLink = 'https://buy.stripe.com/eVaeXgeZ9dfugzS00s';
+                                    break;
+                                case 16:
+                                    redirectLink = 'https://buy.stripe.com/eVa16q8AL1wM1EY3cD';
+                                    break;
+                                case 16:
+                                    redirectLink = 'https://buy.stripe.com/8wMdTc6sDcbqbfybIK';
+                                    break;
+                                case 18:
+                                    redirectLink = 'https://buy.stripe.com/eVa7uO18j1wM3N6cNp';
+                                    break;
+                                case 20:
+                                    redirectLink = 'https://buy.stripe.com/6oEaH09EP6R683mbJm';
+                                    break;
+                                case 21:
+                                    redirectLink = 'https://buy.stripe.com/fZe4iC4kvdfu1EY3cA';
+                                    break;
+                                case 24:
+                                    redirectLink = 'https://buy.stripe.com/dR64iCaITa3i2J2bJ5';
+                                    break;
+                                case 25:
+                                    redirectLink = 'https://buy.stripe.com/4gw16q7wHa3i5VeeVg';
+                                    break;
+                                case 27:
+                                    redirectLink = 'https://buy.stripe.com/9AQcP8aIT8Ze4Ra9AV';
+                                    break;
+                                case 28:
+                                    redirectLink = 'https://buy.stripe.com/fZe3ey18jejy6Zi6oI';
+                                    break;
+                                case 30:
+                                    redirectLink = 'https://buy.stripe.com/6oE8ySg3d3EU3N6cN5';
+                                    break;
+                                case 32:
+                                    redirectLink = 'https://buy.stripe.com/dR6cP86sDa3idnGeVc';
+                                    break;
+                                case 36:
+                                    redirectLink = 'https://buy.stripe.com/14k9CWbMXgrGdnGaEV';
+                                    break;
+                                case 40:
+                                    redirectLink = 'https://buy.stripe.com/00g8yS18j6R61EYcN2';
+                                    break;
+                                case 42:
+                                    redirectLink = 'https://buy.stripe.com/3cs7uO5oz8Ze6ZicN1';
+                                    break;
+                                case 45:
+                                    redirectLink = 'https://buy.stripe.com/14k4iC8ALb7m2J200e';
+                                    break;
+                                case 48:
+                                    redirectLink = 'https://buy.stripe.com/bIY7uOg3dfnCerKcMZ';
+                                    break;
+                                case 49:
+                                    redirectLink = 'https://buy.stripe.com/aEU9CW04f3EUfvOcMY';
+                                    break;
+                                case 50:
+                                    redirectLink = 'https://buy.stripe.com/fZe5mG4kvb7mcjC7sD';
+                                    break;
+                                case 54:
+                                    redirectLink = 'https://buy.stripe.com/28obL44kv6R6dnG7sC';
+                                    break;
+                                case 56:
+                                    redirectLink = 'https://buy.stripe.com/28o9CWdV50sIcjC14d';
+                                    break;
+                                case 60:
+                                    redirectLink = 'https://buy.stripe.com/14k6qK7wHejy6ZieV2';
+                                    break;
+                                case 63:
+                                    redirectLink = 'https://buy.stripe.com/bIYaH0dV5dfuabueV1';
+                                    break;
+                                case 64:
+                                    redirectLink = 'https://buy.stripe.com/3csdTcg3dcbq83m006';
+                                    break;
+                                case 70:
+                                    redirectLink = 'https://buy.stripe.com/eVa8ySbMXa3ierKbIN';
+                                    break;
+                                case 72:
+                                    redirectLink = 'https://buy.stripe.com/eVaeXgdV5grG4Ra148';
+                                    break;
+                                case 80:
+                                    redirectLink = 'https://buy.stripe.com/5kAcP818j2AQ6Zi147';
+                                    break;
+                                // Add cases for other tax values as needed
+                                default:
+                                    // Default redirect link if tax value doesn't match any case
+                                    redirectLink = 'default-link';
+                            }
+                            document.getElementById('pay-tax-btn').setAttribute('href', redirectLink);
+
+                        } else {
+                            document.getElementById('result').innerHTML = "Please enter valid integer values for adults, childs, and nights to calculate tax.";
+                        }
+                    }
+                </script>
+              </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div id="footer-div-1">
+            <div class="footer-address">
+                <h3>Address</h3>
+                <p>Via Brenta 71, Caldonazzo, Italy</p>
+                <br>
+                <p>Phone: 379 17 18 971</p>
+                <br>
+                <p>Email: 
+                    <a href="mailto:business@trentinoshortstsy.com">business@trentinoshortstsy.com</a>
+                </p>
+            </div>
+            <div class="footer-email">
+                <p>&#169;Copyright reserved by Trentino</p>
+            </div>
+        </div>
+        <div id="footer-div-2">
+            <div class="footer-column">
+                <div class="footer-about">
+                    <p style="font-weight: bold;">ABOUT</p>
+                </div>
+                <div class="footer-about">
+                    <a href="#">Team</a>
+                </div>
+                <div class="footer-about">
+                    <a href="#">History</a>
+                </div>
+                <div class="footer-about">
+                    <a href="#">Careers</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-privacy">
+                    <p style="font-weight: bold;">PRIVACY POLICY</p>
+                </div>
+                <div class="footer-privacy">
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-privacy">
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <div class="footer-privacy" style="visibility: hidden;">div4</div>
+            </div>
+            <div class="footer-column">
+                <div class="footer-social">
+                    <p style="font-weight: bold;">SOCIAL</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Facebook</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Instagram</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
