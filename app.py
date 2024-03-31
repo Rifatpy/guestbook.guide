@@ -60,125 +60,167 @@ def get_all_modules_data(ACCESS_TOKEN):
 
 
 @app.route('/', methods=['GET', 'POST'])
-def home():
-  # Generate or refresh access token
-  ACCESS_TOKEN = generate_access_token()
+def login():
+    # Generate or refresh access token
+    """ACCESS_TOKEN = generate_access_token()
+    
+    # Get all modules data using the access token
+    all_data = get_all_modules_data(ACCESS_TOKEN)
+    
+    # Write the data to the JSON file
+    JSON_FILE_PATH = 'response.json'
+    with open(JSON_FILE_PATH, 'w') as json_file:
+        json.dump(all_data, json_file, indent=4)"""
+    
+    # Load the JSON data
+    with open('response.json') as f:
+        all_guest_data = json.load(f)
+    
+    guest_data = {}  # Initialize guest_data
+    if request.method == 'POST':
+        phone_number = request.form.get('phone_number')
+        if phone_number:
+            # Cleaning the phone number
+            cleaned_phone_number = ''.join(filter(str.isdigit, phone_number))[-10:]
+    
+            all_guest_data = all_guest_data.get("data", [])
+            for entry in all_guest_data:
+                phone = ''.join(filter(str.isdigit, entry.get('Guest_Phone', '')))[-10:]
+    
+                if cleaned_phone_number == phone:
+                    guest_data = {
+                        'Guest_Phone': entry.get('Guest_Phone', None),
+                        'Guest_First_Name': entry['Guest_First_Name'],
+                        'Guest_Last_Name': entry['Name'],
+                        'Guest_Email': entry['Guest_Email'],
+                        'Guest_Check_IN': entry['Guest_Check_IN'],
+                        'Guest_Check_OUT': entry['Guest_Check_OUT'],
+                        'Guest_Property_Name': entry['Guest_Property_Name']
+                    }
+                    
+                    if guest_data['Guest_Property_Name'] == "Highlands":
+                        input_number = cleaned_phone_number
+                        return redirect(url_for('highland_property', number=input_number))
+                    elif guest_data['Guest_Property_Name'] == "Casa al Lago":
+                        input_number = cleaned_phone_number
+                        return redirect(url_for('casa_al_lago_property', number=input_number))
+                    elif guest_data['Guest_Property_Name'] == "Depero":
+                        input_number = cleaned_phone_number
+                        return redirect(url_for('depero_property', number=input_number))
+                    elif guest_data['Guest_Property_Name'] == "Casa Mao":
+                        input_number = cleaned_phone_number
+                        return redirect(url_for('casa_mao_property', number=input_number))
+                    else:
+                        return render_template('login.html', error='Invalid phone number. Please try again.')
+    
+            return render_template('login.html', error='Invalid phone number. Please try again.')
+    
+    return render_template('login.html')
 
-  # Get all modules data using the access token
-  all_data = get_all_modules_data(ACCESS_TOKEN)
-
-  # Write the data to the JSON file
-  JSON_FILE_PATH = 'response.json'
-  with open(JSON_FILE_PATH, 'w') as json_file:
-      json.dump(all_data, json_file, indent=4)
-
+# Flask route to handle the property page
+@app.route('/property/highlands_property/<number>')
+def highland_property(number):
+  property_name="Highlands"
   # Load the JSON data
-  with open(JSON_FILE_PATH) as f:
+  with open('response.json') as f:
       all_guest_data = json.load(f)
+  all_guest_data = all_guest_data.get("data", [])
+  for entry in all_guest_data:
+      phone = ''.join(filter(str.isdigit, entry.get('Guest_Phone', '')))[-10:]
 
-  guest_data = {}  # Initialize guest_data
-  if request.method == 'POST':
-      phone_number = request.form['phone_number']
-      # Removing (-) from the number
-      try:
-          phone_number = phone_number.replace("-", "")
-      except:
-          pass
-      # Revoming (+) sign from the number if there is
-      try:
-          phone_number = phone_number.replace("+", "")
-      except:
-          pass
-
-      try:
-          phone_number = phone_number[-10:]
-      except:
-          pass
-
-      all_guest_data = all_guest_data["data"]
-      for entry in all_guest_data:
-          phone = entry['Guest_Phone']
-          # Removing (-) from the number
+      if number == phone:
+          guest_data = {
+              'Guest_Phone': entry['Guest_Phone'],
+              'Guest_First_Name': entry['Guest_First_Name'],
+              'Guest_Last_Name': entry['Name'],
+              'Guest_Email': entry['Guest_Email'],
+              'Guest_Check_IN': entry['Guest_Check_IN'],
+              'Guest_Check_OUT': entry['Guest_Check_OUT'],
+              'Guest_Property_Name': entry['Guest_Property_Name']
+          }
           try:
-              phone = phone.replace("-", "")
+            return render_template('highlands_property.html', property_name=property_name, guest_data=guest_data)
           except:
-              pass
-          # Revoming (+) sign from the number if there is
-          try:
-              phone = phone.replace("+", "")
-          except:
-              pass
-
-          # Taking last 10 digits
-          try:
-              phone = phone[-10:]
-          except:
-              pass
-
-          if phone_number == phone:
-              guest_data = {
-                  'Guest_Phone': phone,
-                  'Guest_First_Name': entry['Guest_First_Name'],
-                  'Guest_Last_Name': entry['Name'],
-                  'Guest_Email': entry['Guest_Email'],
-                  'Guest_Check_IN': entry['Guest_Check_IN'],
-                  'Guest_Check_OUT': entry['Guest_Check_OUT'],
-                  'Guest_Property_Name': entry['Guest_Property_Name']
-              }
-              if guest_data['Guest_Property_Name'] == "Highlands":
-                session['guest_data'] = guest_data  # Store guest data in session
-                session['entry_data'] = entry  # Store entry data in session
-                return redirect(url_for('highland_property', guest_data=guest_data))
-              elif guest_data['Guest_Property_Name'] == "Casa al Lago":
-                session['guest_data'] = guest_data  # Store guest data in session
-                session['entry_data'] = entry  # Store entry data in session
-                return redirect(url_for('casa_al_lago_property', guest_data=guest_data))
-              elif guest_data['Guest_Property_Name'] == "Depero":
-                session['guest_data'] = guest_data  # Store guest data in session
-                session['entry_data'] = entry  # Store entry data in session
-                return redirect(url_for('depero_property', guest_data=guest_data))
-              else:
-                pass
-          else:
-              return render_template('login-page.html', error='Invalid phone number. Please try again.')
+            return render_template('property_not_found.html', property_name=property_name)  
 
 # Flask route to handle the property page
-@app.route('/property/highlands_property')
-def highland_property(guest_data):
-  property_name="highlands"
-  
-  # Retrieve guest data and entry data from session
-  guest_data = session.get('guest_data', {})
-  entry_data = session.get('entry_data', None)
-
-  try:
-    return render_template('highlands_property.html', property_name=property_name, guest_data=guest_data, entry_data=guest_data)
-  except TemplateNotFound:
-    return render_template('property_not_found.html', property_name=property_name)
-  
-  
-
-# Flask route to handle the property page
-@app.route('/property/casa_al_lago_property')
-def casa_al_lago_property(guest_data):
+@app.route('/property/casa_al_lago_property/<number>')
+def casa_al_lago_property(number):
   property_name="Casa al Lago"
   
-  # Retrieve guest data and entry data from session
-  guest_data = session.get('guest_data', {})
-  entry_data = session.get('entry_data', None)
+  # Load the JSON data
+  with open('response.json') as f:
+      all_guest_data = json.load(f)
+  all_guest_data = all_guest_data.get("data", [])
+  for entry in all_guest_data:
+      phone = ''.join(filter(str.isdigit, entry.get('Guest_Phone', '')))[-10:]
+
+      if number == phone:
+          guest_data = {
+              'Guest_Phone': entry['Guest_Phone'],
+              'Guest_First_Name': entry['Guest_First_Name'],
+              'Guest_Last_Name': entry['Name'],
+              'Guest_Email': entry['Guest_Email'],
+              'Guest_Check_IN': entry['Guest_Check_IN'],
+              'Guest_Check_OUT': entry['Guest_Check_OUT'],
+              'Guest_Property_Name': entry['Guest_Property_Name']
+          }
   
-  return render_template('casa_al_lago_property.html', property_name=property_name, guest_data=guest_data, entry_data=guest_data)
+          return render_template('casa_al_lago_property.html', property_name=property_name, guest_data=guest_data)
 
 # Flask route to handle the property page
-@app.route('/property/casa_al_lago_property')
-def depero_property(guest_data):
+@app.route('/property/depero_property/<number>')
+def depero_property(number):
   property_name="Depero"
 
-  # Retrieve guest data and entry data from session
-  guest_data = session.get('guest_data', {})
-  entry_data = session.get('entry_data', None)
+  # Load the JSON data
+  with open('response.json') as f:
+      all_guest_data = json.load(f)
+  all_guest_data = all_guest_data.get("data", [])
+  for entry in all_guest_data:
+      phone = ''.join(filter(str.isdigit, entry.get('Guest_Phone', '')))[-10:]
+
+      if number == phone:
+          guest_data = {
+              'Guest_Phone': entry['Guest_Phone'],
+              'Guest_First_Name': entry['Guest_First_Name'],
+              'Guest_Last_Name': entry['Name'],
+              'Guest_Email': entry['Guest_Email'],
+              'Guest_Check_IN': entry['Guest_Check_IN'],
+              'Guest_Check_OUT': entry['Guest_Check_OUT'],
+              'Guest_Property_Name': entry['Guest_Property_Name']
+          }
   
-  return render_template('casa_al_lago_property.html', property_name=property_name, guest_data=guest_data, entry_data=guest_data)
+          return render_template('depero_property.html', property_name=property_name, guest_data=guest_data)
+
+# Flask route to handle the property page
+@app.route('/property/casa_mao_property/<number>')
+def casa_mao_property(number):
+  property_name="Casa Mao"
+
+  # Load the JSON data
+  with open('response.json') as f:
+      all_guest_data = json.load(f)
+  all_guest_data = all_guest_data.get("data", [])
+  for entry in all_guest_data:
+      phone = ''.join(filter(str.isdigit, entry.get('Guest_Phone', '')))[-10:]
+
+      if number == phone:
+          guest_data = {
+              'Guest_Phone': entry['Guest_Phone'],
+              'Guest_First_Name': entry['Guest_First_Name'],
+              'Guest_Last_Name': entry['Name'],
+              'Guest_Email': entry['Guest_Email'],
+              'Guest_Check_IN': entry['Guest_Check_IN'],
+              'Guest_Check_OUT': entry['Guest_Check_OUT'],
+              'Guest_Property_Name': entry['Guest_Property_Name']
+          }
+
+          return render_template('casa_mao_property.html', property_name=property_name, guest_data=guest_data)
 
 if __name__ == "__main__":
+  # Start the scheduler in a separate thread
+  import threading
+  scheduler_thread = threading.Thread(target=run_scheduler)
+  scheduler_thread.start()
   app.run(host='0.0.0.0', debug=True)
