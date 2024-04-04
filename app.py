@@ -62,7 +62,7 @@ def get_all_modules_data(ACCESS_TOKEN):
 @app.route('/', methods=['GET', 'POST'])
 def login():
     # Generate or refresh access token
-    """ACCESS_TOKEN = generate_access_token()
+    ACCESS_TOKEN = generate_access_token()
     
     # Get all modules data using the access token
     all_data = get_all_modules_data(ACCESS_TOKEN)
@@ -70,7 +70,7 @@ def login():
     # Write the data to the JSON file
     JSON_FILE_PATH = 'response.json'
     with open(JSON_FILE_PATH, 'w') as json_file:
-        json.dump(all_data, json_file, indent=4)"""
+        json.dump(all_data, json_file, indent=4)
     
     # Load the JSON data
     with open('response.json') as f:
