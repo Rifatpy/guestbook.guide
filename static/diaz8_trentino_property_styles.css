@@ -8,8 +8,8 @@
 
 body {
     height: auto;
-    background-image: url("../static/images/macri.jpeg");
-    /*background: linear-gradient(135deg , #79777e 10% , #bababa );*/
+    /*background-image: url("../static/particolare_balcone.jpg");
+    background: linear-gradient(135deg , #79777e 10% , #bababa );*/
     background-size: cover;
     justify-content: center;
     /*background-color: rgb(202, 202, 202);*/
@@ -20,8 +20,8 @@ body {
 header {
     position: fixed;
     top: 0;
-    height: 70px;
-    width: 100%;
+    height: 12vh;
+    width: 100vw;
     background-color: rgba(15, 13, 20, 0.8);
     z-index: 2;
     line-height: 15px;
@@ -149,8 +149,8 @@ a {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    top: 90px;
-    height: 120px;
+    top: 70px;
+    height: auto;
     width: 98%;
     margin: 1% 1% 1% 1%;
     color: black;
@@ -163,7 +163,7 @@ a {
 
 .scrollable-section {
     position: relative;
-    top: 90px;
+    top: 80px;
     margin-left: 20px;
     width: 100%;
     overflow-x: auto;
@@ -199,12 +199,12 @@ a {
 .booking-info-header {
     text-align: center;
     font-size: 1.5em;
-    margin-bottom: 20px;
+    margin-bottom: 2%;
 }
 
 .booking-info-details-div {
     width: 98%;
-    height: 70px;
+    height: 10vh;
     margin: 0 1% 0 1%;
     display: flex;
     flex-wrap: wrap;
@@ -220,8 +220,10 @@ a {
 .container {
     position: absolute;
     display: block;
-    top: 240px;
-    width: 100%;
+    top: 220px;
+    height: 80vh;
+    width: 100vw;
+
 }
 
 /* This is Message part CSS */
@@ -231,7 +233,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 315px;
+    top: 280px;
     width: 100%;
     background-color: #ffc107;
     border: 2px solid #ff9800;
@@ -257,9 +259,9 @@ a {
 
 .content {
     position: relative;
-    margin-top: 140px;
+    margin-top: 110px;
     height: auto;
-    width: 96%;
+    width: 90%;
     padding: 3%;
     background-color: rgba(194, 193, 197, 0.8);
     box-shadow: 0 0 10px rgba(7, 6, 6, 0.5);
@@ -376,7 +378,7 @@ input {
 footer {
     position: relative;
     bottom: 0;
-    display: none;
+    display: flex;
     flex-wrap: nowrap;
     height: 200px;
     width: 100%;
@@ -421,47 +423,7 @@ footer {
     width: 80%;
 }
 
-@media only screen and (min-width: 1000px) {
-  .single-details {
-    margin: 25px;
-  }
-}
 
-
-/* Media query for mobile responsiveness - Medium */
-@media only screen and (min-width: 1700px) {
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 30px;
-  }
-
-  .message-container {
-    top: 345px;
-  }
-
-  .booking-info-details-div {
-    height: 100px;
-  }
-
-  .dashboard {
-    height: 140px;
-  }
-  .container {
-    top: 310px;
-  }
-
-  footer {
-    display: none;
-  }
-
-  .scrollable-section  {
-
-  }
-
-}
 
 /* Media query for mobile responsiveness - Medium */
 @media only screen and (max-width: 768px) {
@@ -495,7 +457,7 @@ footer {
     }
 
     .dashboard {
-        top: 95px;
+        top: 80px;
     }
 
 
@@ -504,11 +466,11 @@ footer {
     }
 
     .container {
-        top: 170px;
+        top: 160px;
     }
 
     .content {
-        top: 80px;
+        top: 8vh;
 
     }
 
@@ -568,29 +530,5 @@ footer {
   .main {
     height: 1100px;
   }
-  .navbar h1 {
-    font-size: 15px;
-  }
 
-  .navbar h2 {
-    font-size: 18px;
-  }
-
-  .booking-info {
-    font-size: 10px;
-  }
-
-  .dashboard {
-    display: none;
-  }
-
-  .message-container {
-    top: 180px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .content {
-    top: -70px;
-  }
 }

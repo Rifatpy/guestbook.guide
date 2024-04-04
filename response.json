@@ -1,57 +1,57 @@
 {
     "data": [
         {
-            "Guest_Property_Name": "Highlands",
+            "Guest_Property_Name": "Ai Broli 1 - Vigolo Vattaro",
             "Guest_First_Name": "Emily",
             "Guest_Check_OUT": "2024-02-29",
             "Guest_Email": "emilystein@gmail.com",
             "Guest_Check_IN": "2024-02-28",
             "id": "628735000000404689",
-            "Guest_Phone": "+49-30-1234-5678",
+            "Guest_Phone": "+393685063469",
             "Name": "Stein"
         },
         {
-            "Guest_Property_Name": "Casa al Lago",
+            "Guest_Property_Name": "Ai Broli 2 - Vigolo Vattaro",
             "Guest_First_Name": "Philipp",
             "Guest_Check_OUT": "2024-03-06",
             "Guest_Email": "philippgraf@gmail.com",
             "Guest_Check_IN": "2024-03-04",
             "id": "628735000000404688",
-            "Guest_Phone": "+49-30-9012-3456",
+            "Guest_Phone": "+393815849973",
             "Name": "Graf"
         },
         {
-            "Guest_Property_Name": "Depero",
+            "Guest_Property_Name": "MaCri - Levico Terme",
             "Guest_First_Name": "Amelie",
             "Guest_Check_OUT": "2024-03-10",
             "Guest_Email": "amelielehmann@gmail.com",
             "Guest_Check_IN": "2024-03-02",
             "id": "628735000000404687",
-            "Guest_Phone": "+49-30-8901-2345",
+            "Guest_Phone": "+395533713683",
             "Name": "Lehmann"
         },
         {
-            "Guest_Property_Name": "Highlands",
+            "Guest_Property_Name": "Interno 77 - Trento",
             "Guest_First_Name": "Benjamin",
             "Guest_Check_OUT": null,
             "Guest_Email": "benjaminherrmann@gmail.com",
             "Guest_Check_IN": null,
             "id": "628735000000404686",
-            "Guest_Phone": "+49-30-7890-1234",
+            "Guest_Phone": "+39338379116",
             "Name": "Herrmann"
         },
         {
-            "Guest_Property_Name": "Casa al Lago",
+            "Guest_Property_Name": "Casa al Lago - Gabbiano - Calceranica al Lago",
             "Guest_First_Name": "Lina",
             "Guest_Check_OUT": null,
             "Guest_Email": "linaschwarz@gmail.com",
             "Guest_Check_IN": null,
             "id": "628735000000404685",
-            "Guest_Phone": "+49-30-6789-0123",
+            "Guest_Phone": "+395504292928",
             "Name": "Schwarz"
         },
         {
-            "Guest_Property_Name": "Depero",
+            "Guest_Property_Name": "Casa al Lago - Svasso - Calceranica al Lago",
             "Guest_First_Name": "Paul",
             "Guest_Check_OUT": null,
             "Guest_Email": "paulbauer@gmail.com",
@@ -61,7 +61,7 @@
             "Name": "Bauer"
         },
         {
-            "Guest_Property_Name": "Highlands",
+            "Guest_Property_Name": "Casa al Lago - Cigno - Calceranica al Lago",
             "Guest_First_Name": "Hannah",
             "Guest_Check_OUT": null,
             "Guest_Email": "hannahneumann@gmail.com",
@@ -71,7 +71,7 @@
             "Name": "Neumann"
         },
         {
-            "Guest_Property_Name": "Casa al Lago",
+            "Guest_Property_Name": "Achea - Trento",
             "Guest_First_Name": "Leon",
             "Guest_Check_OUT": null,
             "Guest_Email": "leonkoch@gmail.com",
@@ -81,7 +81,7 @@
             "Name": "Koch"
         },
         {
-            "Guest_Property_Name": "Depero",
+            "Guest_Property_Name": "Casa Maò - Filadonna - Vigolo Vattaro",
             "Guest_First_Name": "Clara",
             "Guest_Check_OUT": null,
             "Guest_Email": "clarabaumann@gmail.com",
@@ -91,7 +91,7 @@
             "Name": "Baumann"
         },
         {
-            "Guest_Property_Name": "Casa al Lago",
+            "Guest_Property_Name": "Casa Maò - Marzola - Vigolo Vattaro",
             "Guest_First_Name": "Finn",
             "Guest_Check_OUT": null,
             "Guest_Email": "finnwolf@gmail.com",
@@ -101,7 +101,7 @@
             "Name": "Wolf"
         },
         {
-            "Guest_Property_Name": "Casa Mao",
+            "Guest_Property_Name": "Casa Maò - Vezzena - Vigolo Vattaro",
             "Guest_First_Name": "Luisa",
             "Guest_Check_OUT": null,
             "Guest_Email": "luisaschulz@gmail.com",
@@ -111,7 +111,7 @@
             "Name": "Schulz"
         },
         {
-            "Guest_Property_Name": "Depero",
+            "Guest_Property_Name": "Casa Maò - Vigolana - Vigolo Vattaro",
             "Guest_First_Name": "Maximilian",
             "Guest_Check_OUT": null,
             "Guest_Email": "maximilianweber@gmail.com",
@@ -121,7 +121,7 @@
             "Name": "Weber"
         },
         {
-            "Guest_Property_Name": "Highlands",
+            "Guest_Property_Name": "Owl's Nest - Passo al Tonnale",
             "Guest_First_Name": "Mia",
             "Guest_Check_OUT": null,
             "Guest_Email": "miaschneider@gmail.com",
@@ -131,7 +131,7 @@
             "Name": "Schneider"
         },
         {
-            "Guest_Property_Name": "Casa al Lago",
+            "Guest_Property_Name": "Highlands - Levico Terme",
             "Guest_First_Name": "Julian",
             "Guest_Check_OUT": null,
             "Guest_Email": "julianhoffmann@gmail.com",
@@ -141,7 +141,7 @@
             "Name": "Hoffmann"
         },
         {
-            "Guest_Property_Name": "Depero",
+            "Guest_Property_Name": "Depero - Rovereto",
             "Guest_First_Name": "Emma",
             "Guest_Check_OUT": null,
             "Guest_Email": "emmawagner@gmail.com",
@@ -151,7 +151,7 @@
             "Name": "Wagner"
         },
         {
-            "Guest_Property_Name": "Highlands",
+            "Guest_Property_Name": "Al Maset - Pergine Valsugana",
             "Guest_First_Name": "Tim",
             "Guest_Check_OUT": null,
             "Guest_Email": "timfischer@gmail.com",
@@ -161,7 +161,7 @@
             "Name": "Fischer"
         },
         {
-            "Guest_Property_Name": "Casa al Lago",
+            "Guest_Property_Name": "Al Sole - Calceranica al Lago",
             "Guest_First_Name": "Sophie",
             "Guest_Check_OUT": null,
             "Guest_Email": "sophiebecker@gmail.com",
@@ -171,7 +171,7 @@
             "Name": "Becker"
         },
         {
-            "Guest_Property_Name": "Depero",
+            "Guest_Property_Name": "Diaz8 - Trento",
             "Guest_First_Name": "Jonas",
             "Guest_Check_OUT": null,
             "Guest_Email": "jonasmuller@gmail.com",
@@ -181,7 +181,7 @@
             "Name": "M\u00fcller"
         },
         {
-            "Guest_Property_Name": "Highlands",
+            "Guest_Property_Name": "Casa Boller 1 - Vattaro",
             "Guest_First_Name": "Lena",
             "Guest_Check_OUT": null,
             "Guest_Email": "lenaschmidt@gmail.com",
@@ -191,7 +191,7 @@
             "Name": "Schmidt"
         },
         {
-            "Guest_Property_Name": "Highlands",
+            "Guest_Property_Name": "Casa Conci - Calceranica al Lago",
             "Guest_First_Name": "Francesco",
             "Guest_Check_OUT": null,
             "Guest_Email": "francescodeluca@gmail.com",
